@@ -52,8 +52,6 @@ Disclaimer
 Contributing
 
 Contributions are welcome! If you have ideas to improve the tool or want to report issues, feel free to open an issue or submit a pull request.
-License
 
-This project is licensed under the MIT License.
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
