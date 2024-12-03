@@ -24,7 +24,7 @@ Usage
 
     Clone this repository:
 
-git clone https://github.com/yourusername/hacking-tool-set.git
+git clone https://github.com/carcx0x1/hacking-tool-set.git
 cd hacking-tool-set
 
 Configure the script:
