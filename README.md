@@ -55,3 +55,5 @@ Contributions are welcome! If you have ideas to improve the tool or want to repo
 License
 
 This project is licensed under the MIT License.
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
