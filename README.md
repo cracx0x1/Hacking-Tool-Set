@@ -23,7 +23,7 @@ pip3 install paramiko pwntools
 
 ## How to Clone
 ```bash
-git clone https://github.com/yourusername/hacking-tool-set.git
+git clone https://github.com/carcx0x1/hacking-tool-set.git
 
 ````
 ```bash
