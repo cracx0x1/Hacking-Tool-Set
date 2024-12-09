@@ -8,6 +8,27 @@ The Hacking Tool Set is a folder containing multiple repositories of cybersecuri
 2. SSH Brute-Forcing Script: Automates the discovery of SSH passwords using a dictionary attack.
 3. Brute Force Login Tester: A script to brute-force web login forms. It attempts multiple username-password combinations against a target URL and identifies valid credentials based on a predefined success message.
 
+## Tool Usage
+1. SHA-256 Password Cracker
+
+    Prepare a file containing hashed passwords (one hash per line).
+    Provide a wordlist for cracking attempts.
+    Run the script and follow prompts to specify input files.
+
+2. SSH Brute-Forcing Script
+
+    Update the script with the target SSH server address, port, and username(s).
+    Provide a dictionary file containing potential passwords.
+    Run the script and monitor for successful logins.
+
+3. Brute Force Login Tester
+
+    Update the script with:
+        Target login URL
+        A list of usernames
+        A file containing passwords
+        Success message (e.g., "Welcome back")
+   
 ## Prerequisites
 
 - Python 3.x
